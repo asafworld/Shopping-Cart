@@ -41,6 +41,8 @@ function getSkuFromProductItem(item) {
 
 function cartItemClickListener(event) {
   event.target.remove();
+  const addedCartItems = document.querySelector('ol.cart__items');
+  saveCartItems(addedCartItems.innerHTML);
 }
 
 function createCartItemElement({ sku, name, salePrice }) {

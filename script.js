@@ -81,9 +81,23 @@ const showSavedCartItems = () => {
   cartItemsOl.innerHTML = olSaved;
 };
 
+const deleteAllLines = () => {
+  const addedItems = addedCartItems.children;
+  for (let i = 0; i < addedItems.length; i) {
+    addedItems[0].remove();
+  }
+  saveCartItems(addedCartItems.innerHTML);
+};
+
+const emptyCart = () => {
+  const emptyButton = document.querySelector('.empty-cart');
+  emptyButton.addEventListener('click', deleteAllLines);
+};
+
 window.onload = async () => {
   await getFetchProducts();
   await getButtons();
   showSavedCartItems();
   deleteSavedItems(cartItemClickListener);
+  emptyCart();
 };

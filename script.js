@@ -52,10 +52,12 @@ function createCartItemElement({ sku, name, salePrice }) {
 }
 
 const getFetchItem = async (itemID) => {
+  const addedCartItems = document.querySelector('ol.cart__items');
   const result = await fetchItem(itemID);
   const finalResult = createCartItemElement({ 
     sku: result.id, name: result.title, salePrice: result.price });
   cartItems.appendChild(finalResult);
+  saveCartItems(addedCartItems.innerHTML);
 };
 
 const getButtons = () => {
@@ -71,4 +73,5 @@ const getButtons = () => {
 window.onload = async () => {
   await getFetchProducts();
   await getButtons();
+  getSavedCartItems(cartItemClickListener);
 };

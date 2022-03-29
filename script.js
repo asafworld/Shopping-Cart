@@ -18,7 +18,7 @@ function createCustomElement(element, className, innerText) {
   e.innerText = innerText;
   return e;
 }
-// createCustomElement está direcionada a criar os elementos HTML com as informações recebidas da API. 
+// createCustomElement está direcionada a padronizar a criação de um elemento HTML de acordo com as informações passadas por parâmetro.
 
 function createProductItemElement({ sku, name, image }) {
   const section = document.createElement('section');
@@ -29,14 +29,30 @@ function createProductItemElement({ sku, name, image }) {
   section.appendChild(createCustomElement('button', 'item__add', 'Adicionar ao carrinho!'));
   return section;
 }
+// Tal função completa a função superior, tomando sua tarefa e passando os parâmetros para criação dos elementos que mostram os items recebidos pela API na página. 
+
+const getLoading = () => {
+  const loadingSpan = document.createElement('span');
+  loadingSpan.className = 'loading';
+  loadingSpan.innerHTML = 'carregando...';
+  loadingSpan.style.color = 'green';
+  items.appendChild(loadingSpan);
+};
+
+const excludeLoading = () => {
+  const loading = document.querySelector('.loading');
+  loading.remove();
+};
 
 const getFetchProducts = async () => {
+  getLoading();
   const result = await fetchProducts('computador');
   result.results.forEach((each) => {
     const { id, title, thumbnail } = each;
     const resultFinal = createProductItemElement({ sku: id, name: title, image: thumbnail });
     items.appendChild(resultFinal);
   });
+  excludeLoading();
 };
 
 function getSkuFromProductItem(item) {

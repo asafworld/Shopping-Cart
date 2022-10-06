@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "Store simulator",
   "main": "script.js",
+  "scripts": {
+    "test": "jest"
+  },
   "jest": {
     "coverageReporters": [
       "text",
@@ -15,12 +18,16 @@
       "**/tests/**/*.test.js?(x)"
     ]
   },
-  "author": "asafworld",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/asafworld/Shopping-Cart.git"
+  },
+  "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/betrybe/sd-0x-project-shopping-cart/issues"
+    "url": "https://github.com/asafworld/Shopping-Cart/issues"
   },
-  "homepage": "https://github.com/betrybe/sd-0x-project-shopping-cart#readme",
+  "homepage": "https://github.com/asafworld/Shopping-Cart",
   "dependencies": {
     "cypress": "4.3.0",
     "cypress-multi-reporters": "1.2.4",

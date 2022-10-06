@@ -133,11 +133,16 @@ body {
   flex-flow: column wrap;
   background-color: rgb(241, 241, 238);
   height: 100vh;
+  padding: 10px;
 }
 
 .cart .cart__items {
   height: 500px;
   overflow-y: scroll;
+}
+
+.cart__item {
+  margin-bottom: 10px;
 }
 
 .empty-cart {
@@ -146,4 +151,8 @@ body {
   margin: 0 auto;
   border: 2px solid rgb(5, 52, 219);
   background-color: rgb(249, 249, 246);
+}
+
+.price {
+  padding: 20px;
 }
